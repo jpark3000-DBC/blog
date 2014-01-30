@@ -4,5 +4,10 @@
     <p><%= @post.body %></p>
     <p><%= @post.author %> | created: <%= @post.created_at %></p>
   </section>
-  <p><a href= <%= "/edit/#{@post.id}" %>>Edit</a></p>
+  <p><a href= "/edit/<%= @post.id %>">Edit</a></p>
+
+  <form action="/delete/<%= @post.id %>" method="post" onsubmit="return confirm('Are you sure you want to Delete?')">
+    <input type="submit" value="Delete">
+    <input type="hidden" name="_method" value="delete">
+  </form>
 </div>

@@ -21,12 +21,15 @@ get "/edit/:post_id" do
 end
 
 post "/edit/:post_id" do
-  # puts "#{params[:post_id]}"
-  # puts "#{params[:post][:title]}"
   Post.update(params[:post_id],
               title:  params[:post][:title],
               body:   params[:post][:body],
               author: params[:post][:author])
   redirect to("/post/#{params[:post_id]}")
+end
+
+delete "/delete/:post_id" do
+  Post.delete(params[:post_id])
+  redirect to("/")
 end
 
