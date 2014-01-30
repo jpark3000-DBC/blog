@@ -4,4 +4,5 @@
     <p><%= @post.body %></p>
     <p><%= @post.author %> | created: <%= @post.created_at %></p>
   </section>
+  <p><a href= <%= "/edit/#{@post.id}" %>>Edit</a></p>
 </div>

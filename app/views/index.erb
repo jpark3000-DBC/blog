@@ -9,11 +9,11 @@
 
   <div id="posts">
     <% if @posts %>
-      <% @posts.each do |post| %>
+      <% @posts.reverse_each do |post| %>
         <section>
           <h2><a href= <%= "/post/#{post.id}" %>><%= post.title %></a></h2>
           <p><%= post.body %></p>
-          <p><%= post.author %> | created: <%= post.created_at %></p>
+          <p><%= post.author %> | created: <%= post.updated_at %></p>
         </section>
       <% end %>
     <% end %>
