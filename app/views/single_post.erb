@@ -1,0 +1,7 @@
+<div class="container">
+  <section>
+    <h2><a href= <%= "/post/#{@post.id}" %>><%= @post.title %></a></h2>
+    <p><%= @post.body %></p>
+    <p><%= @post.author %> | created: <%= @post.created_at %></p>
+  </section>
+</div>
