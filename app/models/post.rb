@@ -4,4 +4,9 @@ class Post < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :body, :presence => true
+
+  before_save do |post|
+    post.author = "anonymous" if post.author == ""
+  end
+
 end
