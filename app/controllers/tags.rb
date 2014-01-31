@@ -1,6 +1,6 @@
 post "/search_tags" do
-  listings = Post.includes(:tags)
-  @posts = listings.select { |listing| listing.tags[0].tag == params[:tag] }
+  tag = Tag.find_by_tag(params[:tag])
+  @posts = tag.posts
 
   erb :index
 end

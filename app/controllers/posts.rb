@@ -6,7 +6,7 @@ post "/create_post" do
   post = Post.create(title: params[:post][:title],
                      body: params[:post][:body],
                      author: params[:post][:author] )
-  tag = Tag.create(tag: params[:post][:tag])
+  tag = Tag.find_or_create_by(tag: params[:post][:tag])
   Listing.create(post_id: post.id, tag_id: tag.id)
 
   redirect to('/')
