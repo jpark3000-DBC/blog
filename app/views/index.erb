@@ -3,6 +3,12 @@
     <h1>Bob Oblaw's Law Blog</h1>
   </header>
 
+  <form action="/search_tags" method="post">
+    <p>Search for posts by tag:</p>
+    <input type="text" name="tag">
+    <input type="submit" value="search">
+  </form>
+
   <div id="nav">
     <p><a href="/create_post">Create Post</a></p>
   </div>
@@ -14,6 +20,7 @@
           <h2><a href= <%= "/post/#{post.id}" %>><%= post.title %></a></h2>
           <p><%= post.body %></p>
           <p><%= post.author %> | created: <%= post.updated_at %></p>
+
         </section>
       <% end %>
     <% end %>

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many :listings
+  has_many :listings, dependent: :destroy
   has_many :tags, :through => :listings
 
   validates :title, :presence => true

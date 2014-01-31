@@ -3,9 +3,11 @@ get "/create_post" do
 end
 
 post "/create_post" do
-  Post.create(title: params[:post][:title],
-              body: params[:post][:body],
-              author: params[:post][:author] )
+  post = Post.create(title: params[:post][:title],
+                     body: params[:post][:body],
+                     author: params[:post][:author] )
+  tag = Tag.create(tag: params[:post][:tag])
+  Listing.create(post_id: post.id, tag_id: tag.id)
 
   redirect to('/')
 end
@@ -29,7 +31,7 @@ post "/edit/:post_id" do
 end
 
 delete "/delete/:post_id" do
-  Post.delete(params[:post_id])
+  Post.destroy(params[:post_id])
   redirect to("/")
 end
 
